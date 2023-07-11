@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RecipeAPI_Library</string>
+    <string name="random_recipe">Random Recipe</string>
 </resources>

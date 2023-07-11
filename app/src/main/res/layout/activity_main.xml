@@ -14,37 +14,78 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/name"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:maxLines="1"
-        android:minLines="1"
-        android:text="Recipe name"
-        android:textColor="#30275c"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/imageRecipe" />
-
-    <TextView
-        android:id="@+id/recipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Hello World!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/imageRecipe">
 
-    <Button
-        android:id="@+id/randum"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:minLines="1"
+                android:text="Recipe name"
+                android:textColor="#30275c"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ingridiance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="sans-serif-black"
+                android:text="ingridiance"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="sans-serif-black"
+                android:text="description"
+                android:textColor="@color/black"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ingridiance" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/random"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Randum"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="monospace"
+        android:text="@string/random_recipe"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/black" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
