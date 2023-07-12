@@ -6,86 +6,186 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageRecipe"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageRecipe">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:maxLines="1"
-                android:minLines="1"
-                android:text="Recipe name"
-                android:textColor="#30275c"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/ingridiance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="10dp"
-                android:fontFamily="sans-serif-black"
-                android:text="ingridiance"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name" />
-
-            <TextView
-                android:id="@+id/description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="10dp"
-                android:fontFamily="sans-serif-black"
-                android:text="description"
-                android:textColor="@color/black"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ingridiance" />
-        </LinearLayout>
-    </ScrollView>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/random"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="monospace"
-        android:text="@string/random_recipe"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:elevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="@color/black" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/imageRecipe"
+            android:layout_marginTop="-40dp"
+            android:backgroundTint="#DCDFEA"
+            android:elevation="8dp"
+            app:cardCornerRadius="30dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="8dp">
+                <!--  Recipe Name  -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="16dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:minLines="1"
+                    android:text="Recipe name"
+                    android:textColor="#000000"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/gafata" />
+
+                <!--        Divaider -->
+                <View
+                    android:id="@+id/div"
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@+id/name"
+                    android:background="#7A87B8" />
+
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/div"
+                    android:layout_above="@+id/random"
+                    android:layout_marginBottom="8dp"
+                    android:paddingBottom="4dp"
+                    android:paddingStart="4dp"
+                    android:scrollbars="vertical"
+                    >
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical">
+
+
+                        <!--  Recipe ingridiance title -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:ellipsize="end"
+                            android:minLines="1"
+                            android:text="Ingridiance: "
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/gafata" />
+
+                        <!--  Recipe ingridiance  -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/ingridiance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginEnd="12dp"
+                            android:ellipsize="end"
+                            android:minLines="1"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/gafata" />
+
+                        <!--        Divaider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1.5dp"
+                            android:layout_marginTop="12dp"
+                            android:background="#7A87B8" />
+
+                        <!--  Recipe Description title  -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="12dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:minLines="1"
+
+                            android:text="Description:"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/gafata" />
+
+                        <!--  Recipe Description  -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:layout_marginEnd="12dp"
+                            android:ellipsize="end"
+                            android:minLines="1"
+                            android:textColor="#000000"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/gafata" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </ScrollView>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/random"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    app:fontFamily="@font/gafata"
+                    android:text="@string/random_recipe"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:elevation="8dp"
+                    android:layout_marginBottom="4dp"
+                    app:strokeColor="@color/black" />
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageRecipe"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="100dp"
+            android:visibility="invisible"/>
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
